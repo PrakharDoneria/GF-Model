@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gfmodel"
+version = "1.0.0"
+description = "Simple Python client for GitHub Models API"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Prakhar Doneria", email = "prakhardoneria3@gmail.com" }
+]
+keywords = ["github", "llm", "api", "openai", "ai"]
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.31.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/prakhardoneria/gfmodel"
+Repository = "https://github.com/prakhardoneria/gfmodel"
