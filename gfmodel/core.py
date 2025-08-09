@@ -5,7 +5,6 @@ class GFModel:
     def __init__(self, token=None):
         self.token = token or os.getenv("GITHUB_TOKEN")
         self.model = None
-        # Correct base_url as per GitHub documentation
         self.base_url = "https://models.github.ai"
         self.session = requests.Session()
         if self.token:
@@ -22,12 +21,9 @@ class GFModel:
         self._set_headers()
 
     def show(self):
-        # Corrected URL for listing all available models
         url = f"{self.base_url}/catalog/models"
         resp = self.session.get(url)
         resp.raise_for_status()
-        # The API returns a list directly, so we can iterate over it.
-        # The previous code was expecting a dictionary with a 'data' key.
         for model in resp.json():
             print("-", model["id"])
 
@@ -38,7 +34,6 @@ class GFModel:
         if not self.model:
             raise ValueError("No model set. Use set(model_id) first.")
 
-        # Corrected endpoint for chat completions
         url = f"{self.base_url}/inference/chat/completions"
         payload = {
             "model": self.model,
